@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boopathi R | Visionary Developer</title>
+    <meta name="description" content="Portfolio and Resume of Boopathi R - Senior IT Support Executive & Web Developer">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/22997723?v=4">
+    <meta property="og:title" content="Boopathi R | Visionary Developer">
+    <meta property="og:description"
+        content="Portfolio and Resume of Boopathi R - Senior IT Support Executive & Web Developer">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+
+<body>
+    <header>
+        <div class="container nav-content">
+            <a href="#" class="logo">BR<span style="color:var(--accent)">.</span></a>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <a href="#contact" class="btn" id="letsTalkBtn_Looping">Let's Talk</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div style="margin-bottom: 2rem;">
+                        <img id="avatar" src="" alt="Boopathi R"
+                            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); display: none;">
+                    </div>
+                    <p class="tagline" id="tagline"></p>
+                    <h1 id="heroName"></h1>
+                    <p class="bio" id="heroBio"></p>
+                    <div class="cta-group links-container">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="story">
+            <div class="container">
+                <h2 class="section-title">My Story</h2>
+                <div style="max-width: 700px; margin-top: 1.5rem; white-space: pre-line;" id="storyContent">
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div class="timeline" id="experienceList">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container">
+                <h2>Open Source & Projects</h2>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Loaded via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container">
+                <h2>Skills & Certifications</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                    <div>
+                        <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--text-secondary)">Technical Skills
+                        </h3>
+                        <div class="skills-grid" id="skillsList"></div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--text-secondary)">Certifications
+                        </h3>
+                        <div class="skills-grid" id="certsList"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="interests">
+            <div class="container">
+                <h2>Interests</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-secondary)">Beyond coding, here is what makes me tick.
+                </p>
+                <div class="skills-grid" id="interestsList"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="social-links" id="footerSocial"></div>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;" id="footerLocation"></p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                &copy; <span id="year"></span> Boopathi R. Crafted with <i class="fas fa-heart"
+                    style="color:var(--accent)"></i> and Vanilla JS.
+            </p>
+        </div>
+    </footer>
+
+    <button class="a11y-trigger" id="a11yTrigger" aria-label="Accessibility Menu">
+        <i class="fas fa-universal-access"></i>
+    </button>
+
+    <div class="a11y-menu" id="a11yMenu" role="dialog" aria-labelledby="a11yTitle" aria-modal="true">
+        <h3>
+            <span id="a11yTitle"><i class="fas fa-universal-access"></i> Accessibility Tools</span>
+            <button id="closeA11y" aria-label="Close Accessibility Menu" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </h3>
+
+        <div class="a11y-grid">
+            <!-- Text Sizing -->
+            <div class="a11y-control-group">
+                <span class="label"><i class="fas fa-text-height"></i> Text Size</span>
+                <div class="btn-group">
+                    <button id="decreaseText" aria-label="Decrease Text Size" class="icon-btn"><i
+                            class="fas fa-minus"></i></button>
+                    <span id="textSizeDisplay">100%</span>
+                    <button id="increaseText" aria-label="Increase Text Size" class="icon-btn"><i
+                            class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Toggles -->
+            <button class="a11y-toggle-btn" id="grayscaleToggle" aria-pressed="false">
+                <i class="fas fa-adjust"></i> <span>Grayscale</span>
+            </button>
+
+            <button class="a11y-toggle-btn" id="highContrastToggle" aria-pressed="false">
+                <i class="fas fa-sun"></i> <span>High Contrast</span>
+            </button>
+
+            <button class="a11y-toggle-btn" id="readableFontToggle" aria-pressed="false">
+                <i class="fas fa-font"></i> <span>Readable Font</span>
+            </button>
+
+            <button class="a11y-toggle-btn" id="underlineLinksToggle" aria-pressed="false">
+                <i class="fas fa-link"></i> <span>Highlight Links</span>
+            </button>
+
+            <button class="a11y-toggle-btn" id="reduceMotionToggle" aria-pressed="false">
+                <i class="fas fa-film"></i> <span>Reduce Motion</span>
+            </button>
+
+            <!-- Reset -->
+            <button id="resetA11y" class="reset-btn">
+                <i class="fas fa-redo"></i> Reset Settings
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
