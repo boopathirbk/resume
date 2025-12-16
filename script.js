@@ -211,8 +211,13 @@ const App = {
         const savedTheme = localStorage.getItem('app-theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-        // Default to dark if nothing saved, or respect save
-        let currentTheme = savedTheme || 'dark';
+        // Respect saved theme first, otherwise fall back to system preference
+        let currentTheme;
+        if (savedTheme) {
+            currentTheme = savedTheme;
+        } else {
+            currentTheme = systemPrefersDark ? 'dark' : 'light';
+        }
 
         // Apply initial
         root.setAttribute('data-theme', currentTheme);

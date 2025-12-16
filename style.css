@@ -8,8 +8,10 @@
     --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Dark Theme (Default) */
-    --bg-primary: #000000;
-    --bg-secondary: #0a0a0a;
+    --bg-primary: #0a0a0a;
+    /* Soft Black */
+    --bg-secondary: #171717;
+    /* Dark Grey */
     --text-primary: #ededed;
     --text-secondary: #a1a1a1;
     --accent: #0070f3;
@@ -27,7 +29,8 @@
     --bg-primary: #ffffff;
     --bg-secondary: #fafafa;
     --text-primary: #1b1b1b;
-    --text-secondary: #1b1b1b;
+    --text-secondary: #525252;
+    /* WCAG AAA Grey */
     /* --accent: #0070f3; Inherited from :root as it is the same */
     --accent-glow: rgba(0, 112, 243, 0.1);
     --card-bg: rgba(0, 0, 0, 0.02);
