@@ -27,8 +27,8 @@
     --bg-primary: #ffffff;
     --bg-secondary: #fafafa;
     --text-primary: #1b1b1b;
-    --text-secondary: #666666;
-    --accent: #0070f3;
+    --text-secondary: #1b1b1b;
+    /* --accent: #0070f3; Inherited from :root as it is the same */
     --accent-glow: rgba(0, 112, 243, 0.1);
     --card-bg: rgba(0, 0, 0, 0.02);
     --border: #eaeaea;
