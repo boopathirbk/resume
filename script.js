@@ -72,9 +72,7 @@ const App = {
                     <div id="storyHidden" style="display: none; margin-top: 1rem;">
                         <p style="white-space: pre-line">${cleanRest}</p>
                     </div>
-                    <button id="readMoreBtn" class="read-more-btn">
-                        Read More <i class="fas fa-chevron-down"></i>
-                    </button>
+                    <button id="readMoreBtn" class="read-more-btn">Read More <i class="fas fa-chevron-down"></i></button>
                 `;
 
                 // Add Toggle Logic
