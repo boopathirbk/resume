@@ -41,9 +41,8 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div style="margin-bottom: 2rem;">
-                        <img id="avatar" src="" alt="Boopathi R"
-                            style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent); display: none;">
+                    <div class="hero-avatar-container">
+                        <img id="avatar" src="" alt="Boopathi R" class="hero-avatar">
                     </div>
                     <p class="tagline" id="tagline"></p>
                     <h1 id="heroName"></h1>
@@ -84,14 +83,14 @@
         <section class="section" id="skills">
             <div class="container">
                 <h2>Skills & Certifications</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 2rem;">
+                <div class="skills-layout" id="skillsLayout">
                     <div>
-                        <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--text-secondary)">Technical Skills
+                        <h3 class="text-subtitle">Technical Skills
                         </h3>
                         <div class="skills-grid" id="skillsList"></div>
                     </div>
                     <div>
-                        <h3 style="margin-bottom:1rem; font-size:1.1rem; color:var(--text-secondary)">Certifications
+                        <h3 class="text-subtitle">Certifications
                         </h3>
                         <div class="skills-grid" id="certsList"></div>
                     </div>
@@ -102,7 +101,7 @@
         <section class="section" id="interests">
             <div class="container">
                 <h2>Interests</h2>
-                <p style="margin-bottom: 2rem; color: var(--text-secondary)">Beyond coding, here is what makes me tick.
+                <p class="intro-text">Beyond coding, here is what makes me tick.
                 </p>
                 <div class="skills-grid" id="interestsList"></div>
             </div>
@@ -112,7 +111,7 @@
     <footer id="contact">
         <div class="container">
             <div class="social-links" id="footerSocial"></div>
-            <p style="color: var(--text-secondary); margin-bottom: 0.5rem;" id="footerLocation"></p>
+            <p class="footer-info" id="footerLocation"></p>
             <p style="color: var(--text-secondary); font-size: 0.9rem;">
                 &copy; <span id="year"></span> Boopathi R. Crafted with <i class="fas fa-heart"
                     style="color:var(--accent)"></i> and Vanilla JS.

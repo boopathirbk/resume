@@ -515,13 +515,60 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding-top: 8rem;
+        /* Fix: Push content down to avoid menu overlap */
+        align-items: flex-start;
+        /* Align top for better mobile view */
+        text-align: left;
+        /* Ensure left alignment */
+    }
+
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2.25rem;
+        /* Keeping H1 size as requested */
+        line-height: 1.2;
+    }
+
+    .tagline {
+        font-size: 1rem;
+        /* Increased from 0.9rem to prevent "reduced size" feel */
+    }
+
+    .bio {
+        font-size: 1.25rem;
+        /* Ensuring Bio stays large (20px) */
     }
 
     .section {
         padding: 4rem 0;
     }
+}
+
+/* Glassy Read More Button */
+.read-more-btn {
+    display: inline-block;
+    /* Back to left/inline */
+    margin-top: 0.5rem;
+    /* Closer to text (was 1.5rem) */
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    /* Glassy BG */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+}
+
+.read-more-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    /* Subtle Glassy Hover */
+    border-color: var(--accent);
+    transform: translateY(-1px);
 }
 
 /* Accessibility Menu */
@@ -711,4 +758,51 @@ footer {
 .reset-btn:hover {
     border-color: var(--accent);
     color: var(--accent);
+}
+
+/* =========================================
+   Refactored Utilities & New Classes
+   ========================================= */
+
+.hero-avatar-container {
+    margin-bottom: 2rem;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    display: none;
+    object-fit: cover;
+}
+
+.skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.text-subtitle {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.intro-text {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.footer-info {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .skills-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 }

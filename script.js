@@ -22,8 +22,8 @@ const App = {
         // Safe DOM query helper
         const $ = (id) => document.getElementById(id);
 
-        if (!resumeData) {
-            console.error('Resume data not found.');
+        if (!resumeData || !resumeData.personalInfo) {
+            console.error('Resume data or personal info not found.');
             return;
         }
 
@@ -34,13 +34,13 @@ const App = {
             avatarEl.style.display = 'inline-block';
         }
 
-        if ($('tagline')) $('tagline').textContent = resumeData.personalInfo.tagline;
-        if ($('heroName')) $('heroName').innerHTML = `Hi, I'm <br>${resumeData.personalInfo.name}`;
-        if ($('heroBio')) $('heroBio').textContent = resumeData.personalInfo.bio;
+        if ($('tagline')) $('tagline').textContent = resumeData.personalInfo.tagline || '';
+        if ($('heroName')) $('heroName').innerHTML = `Hi, I'm <br>${resumeData.personalInfo.name || 'Developer'}`;
+        if ($('heroBio')) $('heroBio').textContent = resumeData.personalInfo.bio || '';
 
         // Social Links
         const linksContainer = document.querySelector('.links-container');
-        if (linksContainer) {
+        if (linksContainer && resumeData.personalInfo.social) {
             linksContainer.innerHTML = ''; // Clear existing
 
             const createLink = (url, text, iconClass, isPrimary = false) => {
@@ -57,12 +57,48 @@ const App = {
             linksContainer.appendChild(createLink(resumeData.personalInfo.social.linkedin, 'LinkedIn', 'fab fa-linkedin'));
         }
 
-        // Story
-        if ($('storyContent')) $('storyContent').textContent = resumeData.story.content;
+        // Story with "Read More"
+        const storyContainer = $('storyContent');
+        if (storyContainer && resumeData.story?.content) {
+            // Split by double newline to find paragraphs
+            const paragraphs = resumeData.story.content.split(/\n\s*\n/);
+
+            if (paragraphs.length > 1) {
+                const firstPara = paragraphs[0];
+                const cleanRest = paragraphs.slice(1).join('\n\n'); // Rejoin the rest
+
+                storyContainer.innerHTML = `
+                    <p>${firstPara}</p>
+                    <div id="storyHidden" style="display: none; margin-top: 1rem;">
+                        <p style="white-space: pre-line">${cleanRest}</p>
+                    </div>
+                    <button id="readMoreBtn" class="read-more-btn">
+                        Read More <i class="fas fa-chevron-down"></i>
+                    </button>
+                `;
+
+                // Add Toggle Logic
+                const btn = document.getElementById('readMoreBtn');
+                const hiddenDiv = document.getElementById('storyHidden');
+
+                btn.addEventListener('click', () => {
+                    console.log('Read More Clicked');
+                    const isHidden = hiddenDiv.style.display === 'none';
+                    hiddenDiv.style.display = isHidden ? 'block' : 'none';
+                    btn.innerHTML = isHidden
+                        ? 'Show Less <i class="fas fa-chevron-up"></i>'
+                        : 'Read More <i class="fas fa-chevron-down"></i>';
+                });
+
+            } else {
+                // Short story, just show it
+                storyContainer.textContent = resumeData.story.content;
+            }
+        }
 
         // Experience
         const expList = $('experienceList');
-        if (expList) {
+        if (expList && resumeData.experience) {
             resumeData.experience.forEach(exp => {
                 const item = document.createElement('div');
                 item.className = 'timeline-item';
@@ -80,7 +116,7 @@ const App = {
 
         // Projects
         const projGrid = $('projectsGrid');
-        if (projGrid) {
+        if (projGrid && resumeData.projects) {
             resumeData.projects.forEach(proj => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
@@ -112,9 +148,9 @@ const App = {
             }
         };
 
-        renderList('skillsList', resumeData.skills);
-        renderList('certsList', resumeData.certifications);
-        renderList('interestsList', resumeData.interests);
+        renderList('skillsList', resumeData.skills || []);
+        renderList('certsList', resumeData.certifications || []);
+        renderList('interestsList', resumeData.interests || []);
 
         // Footer
         if ($('footerLocation')) {
